@@ -99,12 +99,12 @@ function onSessionEnded(sessionEndedRequest, session) {
 // ------- Skill specific logic -------
 
 function getWelcomeResponse(callback) {
-    var speechOutput = "Welcome! This is Life ray Sales Cars App, I can help you, tell me, what do you need?"
+    var speechOutput = "Bienvenido! ¿En que puedo ayudarte?"
     
 
-    var reprompt = "Tell me please what do you need to know please"
+    var reprompt = "Dime que necesitas saber"
 
-    var header = "Get Info"
+    var header = "dame informacion"
 
     var shouldEndSession = false
 
@@ -127,7 +127,7 @@ function  handleGetStateAnioInfoIntent(intent, session, callback) {
            var a = Number(data);
            data = data.replace('/"','');
 
-            var speechOutput = "The total of sales cars for "+ point +" in "+point2+ " is " + data + " cars";
+            var speechOutput = "El total de autos en venta "+ point +" en "+point2+ " ss " + data + " carros";
             
         }
         callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", false))
@@ -141,11 +141,11 @@ function  handleNoResponse(intent, session, callback){
   function handleFinishSessionRequest(intent, session, callback) {
       // End the session with a "Good bye!" if the user wants to quit the game
       callback(session.attributes,
-          buildSpeechletResponseWithoutCard("Good bye! Thank you for using Life ray Sales Query Alexa App!", "", true));
+          buildSpeechletResponseWithoutCard("Adios! Gracias por usar la app!", "", true));
   }
   
 function  handleGetStateInfoIntent(intent, session, callback) {
-   var speechOutput = "We have an error"
+   var speechOutput = "hubo un error"
    point = intent.slots.State.value.toString();
 
     getJSONState(function(data) {
@@ -153,7 +153,7 @@ function  handleGetStateInfoIntent(intent, session, callback) {
            var a = Number(data);
            data = data.replace('/"','');
 
-            var speechOutput = "The total of sales cars in "+ point +"  from 2014 to 2016 is " + data + " cars";
+            var speechOutput = "El total de carros en venta en "+ point +"  de 2014 a 2016 es " + data + " carros";
             
         }
         callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", false))
@@ -161,7 +161,7 @@ function  handleGetStateInfoIntent(intent, session, callback) {
 }
 
 function handleGetInfoTotalIntent(intent, session, callback) {
-   var speechOutput = "We have an error"
+   var speechOutput = "hubo un error"
   //  point = intent.slots.Value.value.toString();
 
     getJSON(function(data) {
@@ -169,7 +169,7 @@ function handleGetInfoTotalIntent(intent, session, callback) {
            var a = Number(data);
            data = data.replace('/"','');
 
-            var speechOutput = "The total of sales cars in Mexico from 2014 to 2016 is " + data + " cars";
+            var speechOutput = "El total de carros en venta en Mexico de 2014 a 2016 es de " + data + " carros";
             
         }
         callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", false))
@@ -177,7 +177,7 @@ function handleGetInfoTotalIntent(intent, session, callback) {
 }
 
 function handleGetAnioInfoIntent(intent, session, callback) {
-   var speechOutput = "We have an error"
+   var speechOutput = "hubo un error"
     point = intent.slots.Anio.value.toString();
 
     getJSONAnio(function(data) {
@@ -185,7 +185,7 @@ function handleGetAnioInfoIntent(intent, session, callback) {
            var a = Number(data);
            data = data.replace('/"','');
 
-            var speechOutput = "The total of sales cars in Mexico "+ point+" is " + data + " cars";
+            var speechOutput = "El total de carros en venta en Mexico "+ point+" es de " + data + " carros";
             
         }
         callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", false))
@@ -225,7 +225,7 @@ function url() {
 
 function handleYesResponse(intent,session,callback){
 
-    var speechOutput = "Great! Tell me what do you need?";
+    var speechOutput = "Bien, dime que necesitas?";
     var repromptText = speechOutput;
     var shouldEndSession = false;
     callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession));
@@ -234,7 +234,7 @@ function handleYesResponse(intent,session,callback){
 function handleFinishSessionRequest(intent, session, callback) {
       // End the session with a "Good bye!" if the user wants to quit the game
       callback(session.attributes,
-          buildSpeechletResponseWithoutCard("Good bye! Thank you for using Liferay Cars App!", "", true));
+          buildSpeechletResponseWithoutCard("Adios! Gracias por usar la app!", "", true));
   }
 
   function  handleNoResponse(intent, session, callback){
